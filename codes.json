@@ -1,1 +1,23 @@
-[]
+[
+	{
+		"name": "Sample Project 1",
+		"modifyCode": "12345",
+		"files": [
+			{
+				"name": "MainActivity.java",
+				"language": "Java",
+				"code": ""
+			},
+			{
+				"name": "AndroidManifest.xml",
+				"language": "Extensible Markup Language",
+				"code": ""
+			},
+			{
+				"name": "activity_main.xml",
+				"language": "Extensible Markup Language",
+				"code": ""
+			}
+		]
+	}
+]

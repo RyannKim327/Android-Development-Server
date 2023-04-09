@@ -26,6 +26,28 @@ app.post("/data", (req, res) => {
 	}
 })
 
+app.post("/modify", (req, res) => {
+	if(req.body.project_name == undefined){
+		res.send(JSON.stringify({
+			"statusCode": 404,
+			"message": "Project name must be required"
+		}))
+	}else{
+		let json = JSON.parse(fs.readFileSync("codes.json", "utf8"))
+		if(json[req.body.project_name] == undefined){
+			// Create a new
+		}else{
+			// Existing
+			if(req.body.project_code == undefined){
+				res.send(JSON.stringify({
+					"statusCode": 400,
+					"message": "The Project Code must be required if the project is already existed."
+				}))
+			}
+		}
+	}
+})
+
 app.listen(PORT, () => {
 	console.log(`Currently Listening to Default PORT: ${PORT}`)
 })
