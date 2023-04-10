@@ -63,6 +63,11 @@ app.post("/modify", (req, res) => {
 				let key = keys[req.body.project_code]
 				if(json[key]['name'] == req.body.project_name){
 					// Goods
+					if(json[i]['files'].includes(req.body.filename)){
+						// Modify
+					}else{
+						// Add new
+					}
 				}else{
 					res.send(JSON.stringify({
 						"statusCode": 400,
