@@ -51,11 +51,9 @@ app.post("/modify", (req, res) => {
 					c += code[Math.floor(Math.random() * code.length)]
 				}
 			}
-			keys[c] = json.length
+			keys[c] = json.length - 1
 			
-			// Create a new
 		}else{
-			// Existing
 			if(req.body.project_code == undefined){
 				res.send(JSON.stringify({
 					"statusCode": 400,
