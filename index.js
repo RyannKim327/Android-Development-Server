@@ -40,6 +40,19 @@ app.post("/modify", (req, res) => {
 			i++
 		}
 		if(json[i][req.body.project_name] == undefined){
+			let code = "01234567890ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"
+			let c = ""
+			for(let i = 0; i < 6; i++){
+				c += code[Math.floor(Math.random() * code.length)]
+			}
+			while(keys[c] != undefined){
+				c = ""
+				for(let i = 0; i < 6; i++){
+					c += code[Math.floor(Math.random() * code.length)]
+				}
+			}
+			keys[c] = json.length
+			
 			// Create a new
 		}else{
 			// Existing
