@@ -34,7 +34,12 @@ app.post("/modify", (req, res) => {
 		}))
 	}else{
 		let json = JSON.parse(fs.readFileSync("codes.json", "utf8"))
-		if(json[req.body.project_name] == undefined){
+		let keys = JSON.parse(fs.readFileSync("keys.json", "utf8"))
+		let i = 0
+		while(json[i][req.body.project_name] == undefined && i < json.length){
+			i++
+		}
+		if(json[i][req.body.project_name] == undefined){
 			// Create a new
 		}else{
 			// Existing
@@ -43,6 +48,16 @@ app.post("/modify", (req, res) => {
 					"statusCode": 400,
 					"message": "The Project Code must be required if the project is already existed."
 				}))
+			}else{
+				let key = keys[req.body.project_code]
+				if(json[key]['name'] == req.body.project_name){
+					// Goods
+				}else{
+					res.send(JSON.stringify({
+						"statusCode": 400,
+						"message": "Project name not match"
+					}))
+				}
 			}
 		}
 	}
